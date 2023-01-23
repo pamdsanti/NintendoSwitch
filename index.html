@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="shortcut icon" href="recursos/favicon.ico" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>NINTENDO SWITCH｜Reproductor de Video</title>
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="interface">
+	    <div class="left-half"></div>
+	    <div class="right-half"></div>
+	    <div class="t1">NINTENDO</div>
+	  <div class="t2">SWITCH</div>
+    </div>
+
+
+    <div class="grid-container-cuatro">
+<div class="cartucho1"></div>
+<div class="cartucho2"></div>
+<div class="cartucho3"></div>
+      <button class="tarjeta MyDiv1" onclick="switchVideo(0); myFunctionkomp1();" id="btnmenukomp" style="position: relative;">
+        <div>
+          <img src="recursos/discos-nintendo-01.png" loading="lazy" alt="" style="width:90px;">
+        </div>
+      </button>
+      <button class="tarjeta MyDiv2" onclick="switchVideo(1); myFunctionkomp2();" id="btnmenukomp" style="position: relative;">
+        <div>
+          <img src="recursos/discos-nintendo-02.png" loading="lazy" alt="" style="width:90px;">
+        </div>
+      </button>
+      <button class="tarjeta MyDiv3" onclick="switchVideo(2); myFunctionkomp3();" id="btnmenukomp" style="position: relative;">
+        <div>
+          <img src="recursos/discos-nintendo-03.png" loading="lazy" alt="" style="width:90px;">
+        </div>
+      </button>
+    </div>
+
+
+
+    <div class="nintendo-switch">
+      <div class="left-joycon">
+        <div id="audio-control" class="minus" title="Mute/Unmute"><img src="recursos/mute.png" class="mute-symbol mute" ></div>
+        <div class="d-pad">
+          <button onclick="togglePlay();" class="d-pad-center toggle" title="Play/Pause" ng-controller="myCtrl"><img src="recursos/play.png" class="play-symbol pointer" ></button>
+        </div>
+        <div class="buttons">
+          <button class="button" onclick="document.querySelector('video').playbackRate = 2.0;"><div title="2.0" class="velocidad"></div></button>
+          <button class="button" onclick="document.querySelector('video').playbackRate = 0.5;"><div title="0.5" class="velocidad"></div></button>
+          <button class="button" onclick="document.querySelector('video').playbackRate = 1.0;"><div title="1.0" class="velocidad"></div></button>
+          <button class="button" onclick="document.querySelector('video').playbackRate = 1.5;"><div title="1.5" class="velocidad"></div></button>
+        </div>
+        <button id="fsBtn" class="box" title="Full Screen"><img src="recursos/full-screen.png" class="pointer"></button>
+      </div>
+      <div class="center">
+        <div class="screen player">
+
+          <video class="player__video viewer" id="video" preload="none" poster="recursos/screen-caption.png">
+      <source id="mp4" src="" type="video/mp4">
+        <track id="vtt" src="" kind="subtitles" srclang="en" label="English">
+       <p>Your user agent does not support the HTML5 Video element.</p>
+ </video>
+ <nav class="player__controls">
+         <div class="progress">
+         <div class="progress__filled"></div>
+         </div>
+         <button style="display:none;" class="player__button toggle" title="Toggle Play">►</button>
+         <input style="display:none;" type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+         <input style="display:none;" type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+         <button style="display:none;" data-skip="-10" class="player__button">« 10s</button>
+         <button style="display:none;" data-skip="25" class="player__button">25s »</button>
+         <button style="display:none;" id="fsBtn" class="player__button" alt="Click to enter FullScreen mode - esc to exit FullScreen">📺</button>
+       </nav>
+        </div>
+      </div>
+      <div class="right-joycon">
+        <div class="plus" title="Volume Range"><img src="recursos/volume-range.png" class="volumerange" ></div><input id="video" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">
+        <div class="buttons">
+          <div class="button"></div>
+          <div class="button"></div>
+          <div class="button"></div>
+          <div class="button"></div>
+        </div>
+        <div class="d-pad">
+          <div class="d-pad-center" title="Subtitles"><img src="recursos/subtitles.png" class="subtitles"></div>
+        </div>
+        <div class="circle" title="Capture"  onclick="hidephoto()"><button onclick="capture()"><img src="recursos/shot.png" class="shot-symbol pointer camara"></button>
+        </div>  <div class="titulo" title="Right-click to Download"><canvas id="canvas" style="overflow:auto;"></canvas></div>
+
+
+      </div>
+    </div>
+
+    <footer>
+    <div class="footer">
+    <div class="row">
+    <a href="https://www.behance.net/andrea_pam4f9f" target="_blank"><i class="fa fa-behance"></i></a>
+    <a href="https://www.facebook.com/pamela.desantiago/" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.instagram.com/pamela_de_santiago/" target="_blank"><i class="fa fa-instagram"></i></a>
+    </div>
+    <div class="text">
+    Streaming en la Web © 2022 UNIR || Diseñador por: <span>Pamela De Santiago</span>
+    </div>
+    </div>
+    </footer>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+            <script src="scripts.js"></script>
+
+  </body>
+</html>
